@@ -5,10 +5,12 @@ loadkeys pl
 
 echo setfont Lat2-Terminus16.psfu.gz -m 8859-2
 setfont Lat2-Terminus16.psfu.gz -m 8859-2
+timedatectl set-ntp true
 
-#mount /dev/sda3 /mnt
-#mkdir /mnt/efi
-#mount /dev/sda1 /efi
+mount /dev/sda3 /mnt
+mkdir /mnt/efi
+mount /dev/sda1 /mnt/efi
+swapon /dev/sda2
 
 echo rankmirrors
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
