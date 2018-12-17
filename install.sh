@@ -6,8 +6,6 @@ loadkeys pl
 echo setfont Lat2-Terminus16.psfu.gz -m 8859-2
 setfont Lat2-Terminus16.psfu.gz -m 8859-2
 
-pacman -Sy r8168,grub,pacman-contrib --noconfirm
-
 #mount /dev/sda3 /mnt
 #mkdir /mnt/efi
 #mount /dev/sda1 /efi
@@ -94,3 +92,5 @@ echo '#Server = http://mirror.united-gameserver.de/archlinux/$repo/os/$arch' >> 
 echo '#Server = http://arch.unixpeople.org/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 echo '#Server = http://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 echo '#Server = https://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+
+pacman -Sy r8168,grub,pacman-contrib --noconfirm
