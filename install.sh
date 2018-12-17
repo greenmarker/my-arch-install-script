@@ -6,4 +6,6 @@ loadkeys pl
 echo setfont Lat2-Terminus16.psfu.gz -m 8859-2
 setfont Lat2-Terminus16.psfu.gz -m 8859-2
 
-pacman -Sy r8168 --noconfirm
+pacman -Sy r8168,grub,pacman-contrib --noconfirm
+echo rankmirrors
+cp /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
