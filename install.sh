@@ -98,3 +98,6 @@ pacman -Syy
 
 pacman -Sy nano --noconfirm
 #pacman -Sy r8168,grub,pacman-contrib --noconfirm
+
+#pacstrap /mnt base
+#genfstab -U /mnt >> /mnt/etc/fstab
