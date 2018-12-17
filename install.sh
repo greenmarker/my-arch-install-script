@@ -109,24 +109,24 @@ pacman -Sy nano intel-ucode --noconfirm
 # efivar
 #pacman -Sy r8168,grub,pacman-contrib --noconfirm
 
-pacstrap /mnt base
-genfstab -U /mnt >> /mnt/etc/fstab
+#pacstrap /mnt base
+#genfstab -U /mnt >> /mnt/etc/fstab
 
 
 
 
 ##################################################################################################
-arch-chroot /mnt
-ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
-hwclock --systohc
+#arch-chroot /mnt
+#ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
+#hwclock --systohc
 
-echo Writing /etc/pacman.d/hooks/systemd-boot.hook
-echo '[Trigger]' > /etc/pacman.d/hooks/systemd-boot.hook
-echo 'Type = Package' >> /etc/pacman.d/hooks/systemd-boot.hook
-echo 'Operation = Upgrade' >> /etc/pacman.d/hooks/systemd-boot.hook
-echo 'Target = systemd' >> /etc/pacman.d/hooks/systemd-boot.hook
-echo '' >> /etc/pacman.d/hooks/systemd-boot.hook
-echo '[Action]' >> /etc/pacman.d/hooks/systemd-boot.hook
-echo 'Description = Updating systemd-boot' >> /etc/pacman.d/hooks/systemd-boot.hook
-echo 'When = PostTransaction' >> /etc/pacman.d/hooks/systemd-boot.hook
-echo 'Exec = /usr/bin/bootctl update' >> /etc/pacman.d/hooks/systemd-boot.hook
+#echo Writing /etc/pacman.d/hooks/systemd-boot.hook
+#echo '[Trigger]' > /etc/pacman.d/hooks/systemd-boot.hook
+#echo 'Type = Package' >> /etc/pacman.d/hooks/systemd-boot.hook
+#echo 'Operation = Upgrade' >> /etc/pacman.d/hooks/systemd-boot.hook
+#echo 'Target = systemd' >> /etc/pacman.d/hooks/systemd-boot.hook
+#echo '' >> /etc/pacman.d/hooks/systemd-boot.hook
+#echo '[Action]' >> /etc/pacman.d/hooks/systemd-boot.hook
+#echo 'Description = Updating systemd-boot' >> /etc/pacman.d/hooks/systemd-boot.hook
+#echo 'When = PostTransaction' >> /etc/pacman.d/hooks/systemd-boot.hook
+#echo 'Exec = /usr/bin/bootctl update' >> /etc/pacman.d/hooks/systemd-boot.hook
