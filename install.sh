@@ -7,6 +7,15 @@ echo setfont Lat2-Terminus16.psfu.gz -m 8859-2
 setfont Lat2-Terminus16.psfu.gz -m 8859-2
 timedatectl set-ntp true
 
+echo Formatting ESP partition
+mkfs.vfat -F 32 /dev/sda1
+echo Formatting Swap partition
+mkswap /dev/sda2
+swapon /dev/sda2
+echo Formatting Data partition
+mkfs.btrfs /dev/sda3
+
+echo Mounting partitions
 mount /dev/sda3 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
@@ -100,21 +109,24 @@ pacman -Sy nano intel-ucode --noconfirm
 # efivar
 #pacman -Sy r8168,grub,pacman-contrib --noconfirm
 
-#pacstrap /mnt base
+pacstrap /mnt base
 genfstab -U /mnt >> /mnt/etc/fstab
 
-##
+
+
+
+##################################################################################################
 arch-chroot /mnt
 ln -sf /usr/share/zoneinfo/Europe/Warsaw /etc/localtime
 hwclock --systohc
 
 echo Writing /etc/pacman.d/hooks/systemd-boot.hook
-echo '[Trigger]' > /mnt/etc/pacman.d/hooks/systemd-boot.hook
-echo 'Type = Package' >> /mnt/etc/pacman.d/hooks/systemd-boot.hook
-echo 'Operation = Upgrade' >> /mnt/etc/pacman.d/hooks/systemd-boot.hook
-echo 'Target = systemd' >> /mnt/etc/pacman.d/hooks/systemd-boot.hook
-echo '' >> /mnt/etc/pacman.d/hooks/systemd-boot.hook
-echo '[Action]' >> /mnt/etc/pacman.d/hooks/systemd-boot.hook
-echo 'Description = Updating systemd-boot' >> /mnt/etc/pacman.d/hooks/systemd-boot.hook
-echo 'When = PostTransaction' >> /mnt/etc/pacman.d/hooks/systemd-boot.hook
-echo 'Exec = /usr/bin/bootctl update' >> /mnt/etc/pacman.d/hooks/systemd-boot.hook
+echo '[Trigger]' > /etc/pacman.d/hooks/systemd-boot.hook
+echo 'Type = Package' >> /etc/pacman.d/hooks/systemd-boot.hook
+echo 'Operation = Upgrade' >> /etc/pacman.d/hooks/systemd-boot.hook
+echo 'Target = systemd' >> /etc/pacman.d/hooks/systemd-boot.hook
+echo '' >> /etc/pacman.d/hooks/systemd-boot.hook
+echo '[Action]' >> /etc/pacman.d/hooks/systemd-boot.hook
+echo 'Description = Updating systemd-boot' >> /etc/pacman.d/hooks/systemd-boot.hook
+echo 'When = PostTransaction' >> /etc/pacman.d/hooks/systemd-boot.hook
+echo 'Exec = /usr/bin/bootctl update' >> /etc/pacman.d/hooks/systemd-boot.hook
