@@ -96,7 +96,7 @@ echo 'Server = http://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d/
 echo 'Server = https://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 pacman -Syy
 
-pacman -Sy nano intel-ucode --noconfirm
+pacman -Sy nano intel-ucode efivar --noconfirm
 #pacman -Sy r8168,grub,pacman-contrib --noconfirm
 
 #pacstrap /mnt base
