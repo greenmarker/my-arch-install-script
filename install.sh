@@ -8,8 +8,8 @@ setfont Lat2-Terminus16.psfu.gz -m 8859-2
 timedatectl set-ntp true
 
 mount /dev/sda3 /mnt
-mkdir /mnt/efi
-mount /dev/sda1 /mnt/efi
+mkdir /mnt/boot
+mount /dev/sda1 /mnt/boot
 swapon /dev/sda2
 
 echo rankmirrors
@@ -96,7 +96,8 @@ echo 'Server = http://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d/
 echo 'Server = https://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 pacman -Syy
 
-pacman -Sy nano intel-ucode efivar --noconfirm
+pacman -Sy nano intel-ucode --noconfirm
+# efivar
 #pacman -Sy r8168,grub,pacman-contrib --noconfirm
 
 #pacstrap /mnt base
