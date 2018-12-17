@@ -94,5 +94,7 @@ echo 'Server = http://mirror.united-gameserver.de/archlinux/$repo/os/$arch' >> /
 echo 'Server = http://arch.unixpeople.org/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 echo 'Server = http://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
 echo 'Server = https://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d/mirrorlist
+pacman -Syy
 
-pacman -Sy r8168,grub,pacman-contrib --noconfirm
+pacman -Sy nano --noconfirm
+#pacman -Sy r8168,grub,pacman-contrib --noconfirm
