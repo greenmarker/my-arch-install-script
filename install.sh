@@ -97,4 +97,5 @@ echo 'Server = https://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d
 pacman -Syy
 
 pacman -Sy nano --noconfirm
+pacman -Sy btrfs-progs --noconfirm
 #pacman -Sy r8168,grub,pacman-contrib --noconfirm
