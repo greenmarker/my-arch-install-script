@@ -21,7 +21,6 @@ echo Mounting partitions
 mount /dev/sda3 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
-swapon /dev/sda2
 
 echo rankmirrors
 mv /etc/pacman.d/mirrorlist /etc/pacman.d/mirrorlist.backup
