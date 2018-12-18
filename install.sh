@@ -9,13 +9,13 @@ echo setfont Lat2-Terminus16.psfu.gz -m 8859-2
 setfont Lat2-Terminus16.psfu.gz -m 8859-2
 timedatectl set-ntp true
 
-echo Formatting ESP partition
-mkfs.vfat -F 32 /dev/sda1
-echo Formatting Swap partition
-mkswap /dev/sda2
-swapon /dev/sda2
-echo Formatting Data partition
-mkfs.btrfs /dev/sda3
+# echo Formatting ESP partition
+# mkfs.vfat -F 32 /dev/sda1
+# echo Formatting Swap partition
+# mkswap /dev/sda2
+# swapon /dev/sda2
+# echo Formatting Data partition
+# mkfs.btrfs /dev/sda3
 
 echo Mounting partitions
 mount /dev/sda3 /mnt
