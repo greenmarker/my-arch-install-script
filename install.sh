@@ -107,11 +107,14 @@ echo 'Server = https://ftp.wrz.de/pub/archlinux/$repo/os/$arch' >> /etc/pacman.d
 pacman -Syy
 
 pacman -Sy nano intel-ucode --noconfirm
-# efivar
-#pacman -Sy r8168,grub,pacman-contrib --noconfirm
 
-#pacstrap /mnt base
-#genfstab -U /mnt >> /mnt/etc/fstab
+# efivar --list
+# pacman -Sy r8168,grub,pacman-contrib --noconfirm
+
+## When internet connection is poor and pacstrap can't download all packages in the first pass, let it finish & run it again.
+# pacstrap /mnt base
+
+# genfstab -U /mnt >> /mnt/etc/fstab
 
 
 
