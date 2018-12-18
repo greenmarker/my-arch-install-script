@@ -2,22 +2,20 @@
 
 # booting: F2 or DEL to enter "BIOS", F8 to go to boot menu, select "UEFI: pendrive"
 
-echo loadkeys pl
 loadkeys pl
-
-echo setfont Lat2-Terminus16.psfu.gz -m 8859-2
 setfont Lat2-Terminus16.psfu.gz -m 8859-2
 timedatectl set-ntp true
 
+## Formatting
 # echo Formatting ESP partition
 # mkfs.vfat -F 32 /dev/sda1
 # echo Formatting Swap partition
 # mkswap /dev/sda2
-# swapon /dev/sda2
 # echo Formatting Data partition
 # mkfs.btrfs /dev/sda3
 
 echo Mounting partitions
+swapon /dev/sda2
 mount /dev/sda3 /mnt
 mkdir /mnt/boot
 mount /dev/sda1 /mnt/boot
