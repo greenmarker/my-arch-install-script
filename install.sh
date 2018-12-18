@@ -1,5 +1,7 @@
 #!/bin/bash
 
+# booting: F2 or DEL to enter "BIOS", F8 to go to boot menu, select "UEFI: pendrive"
+
 echo loadkeys pl
 loadkeys pl
 
