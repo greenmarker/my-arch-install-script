@@ -111,8 +111,9 @@ pacman -Sy nano intel-ucode --noconfirm
 # efivar --list
 # pacman -Sy r8168,grub,pacman-contrib --noconfirm
 
-## When internet connection is poor and pacstrap can't download all packages in the first pass, let it finish & run it again.
 # pacstrap /mnt base
+## When internet connection is poor and pacstrap can't download all packages in the first pass, let it finish & run it again.
+## pacstrap /mnt base --needed
 
 # genfstab -U /mnt >> /mnt/etc/fstab
 
